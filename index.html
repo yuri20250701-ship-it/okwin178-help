@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>OKWIN178 — Help Center</title>
+<meta name="theme-color" content="#1c1712">
+<style>
+:root{
+  --g1:#b8963e;--g2:#d4b96a;--g3:#8a6d2b;--g4:#e8d5a8;--g5:#f2e6c9;--g6:#c9a54a;
+  --bg:#faf7f1;--bg2:#f3ece0;--bg3:#eee7d8;
+  --card:#ffffff;--txt:#2c2418;--dim:#8c7e6a;--dim2:#a69880;
+  --dk:#1c1712;--dk2:#2a2219;--dk3:#35291e;
+  --safe-b:env(safe-area-inset-bottom);
+  --r:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--txt);line-height:1.65;min-height:100dvh;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ===== Header — centered, light, premium ===== */
+.hdr{position:sticky;top:0;z-index:90;background:rgba(250,247,241,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:14px 18px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--g5)}
+.hdr-inner{width:100%;max-width:440px;display:flex;align-items:center;justify-content:space-between}
+.logo{height:26px}
+.lang-sw{display:flex;border:1px solid var(--g4);border-radius:6px;overflow:hidden}
+.lang-sw button{padding:5px 14px;border:none;background:transparent;color:var(--dim);font-family:inherit;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:.3px}
+.lang-sw button+button{border-left:1px solid var(--g4)}
+.lang-sw button.on{background:var(--g1);color:#fff}
+
+/* ===== Casino floating elements ===== */
+.hero{position:relative;overflow:hidden}
+.casino-bg{position:absolute;inset:0;pointer-events:none;z-index:0}
+.casino-el{position:absolute;opacity:0;animation:casinoFloat 8s ease-in-out infinite;font-size:18px;color:var(--g4);filter:drop-shadow(0 1px 3px rgba(184,150,62,.15))}
+.casino-el:nth-child(1){left:8%;top:70%;animation-delay:0s;font-size:16px}
+.casino-el:nth-child(2){left:85%;top:60%;animation-delay:1.5s;font-size:14px}
+.casino-el:nth-child(3){left:20%;top:80%;animation-delay:3s;font-size:20px}
+.casino-el:nth-child(4){left:75%;top:75%;animation-delay:4.5s;font-size:15px}
+.casino-el:nth-child(5){left:50%;top:85%;animation-delay:2s;font-size:17px}
+.casino-el:nth-child(6){left:35%;top:65%;animation-delay:5.5s;font-size:13px}
+.casino-el:nth-child(7){left:92%;top:50%;animation-delay:6.5s;font-size:16px}
+.casino-el:nth-child(8){left:5%;top:45%;animation-delay:7s;font-size:14px}
+@keyframes casinoFloat{0%{opacity:0;transform:translateY(20px) rotate(0deg)}15%{opacity:.35}50%{opacity:.25;transform:translateY(-40px) rotate(15deg)}85%{opacity:.35}100%{opacity:0;transform:translateY(-80px) rotate(-10deg)}}
+
+/* Gold sparkle particles */
+.sparkle-wrap{position:absolute;inset:0;pointer-events:none;z-index:0}
+.sparkle{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--g6);animation:sparkle 3s ease-in-out infinite}
+.sparkle:nth-child(1){left:12%;top:30%;animation-delay:0s}
+.sparkle:nth-child(2){left:88%;top:25%;animation-delay:.7s}
+.sparkle:nth-child(3){left:45%;top:15%;animation-delay:1.4s}
+.sparkle:nth-child(4){left:70%;top:60%;animation-delay:2.1s}
+.sparkle:nth-child(5){left:25%;top:50%;animation-delay:.4s}
+.sparkle:nth-child(6){left:60%;top:40%;animation-delay:1.8s}
+.sparkle:nth-child(7){left:35%;top:70%;animation-delay:2.5s}
+.sparkle:nth-child(8){left:80%;top:45%;animation-delay:1.1s}
+@keyframes sparkle{0%,100%{opacity:0;transform:scale(0)}50%{opacity:.7;transform:scale(1.5)}}
+
+/* Card gold luster */
+.tg{position:relative}
+.tg::before{content:"";position:absolute;top:0;left:-150%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(184,150,62,.06),transparent);transform:skewX(-15deg);transition:none;pointer-events:none;z-index:1}
+.tg.open::before{animation:cardShine 2s ease-in-out}
+@keyframes cardShine{0%{left:-150%}100%{left:250%}}
+
+/* Section divider suits */
+.sh-deco{display:flex;align-items:center}
+.sh-card-fan{width:40px;height:32px}
+.sh-card-fan svg{width:100%;height:100%;filter:drop-shadow(1px 1px 2px rgba(138,109,43,.2))}
+.sh-card-fan:nth-child(2){transform:scaleX(-1)}
+
+/* Music toggle */
+@keyframes musicBar{0%{height:3px}100%{height:12px}}
+
+/* ===== Hero — compact, warm ===== */
+.hero{text-align:center;padding:28px 24px 20px;background:linear-gradient(180deg,var(--bg2),var(--bg))}
+.hero-player{display:flex;flex-direction:column;align-items:center;gap:10px;margin:0 auto 18px;padding:0;background:none;border:none;cursor:pointer;color:var(--g3);-webkit-tap-highlight-color:transparent}
+.hero-player:active .hp-disc{transform:scale(.95)}
+.hp-disc{position:relative;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--g5),var(--bg3));box-shadow:0 4px 20px rgba(184,150,62,.18),inset 0 2px 6px rgba(255,255,255,.3);transition:transform .2s;overflow:hidden}
+.hero-player.playing .hp-disc{animation:discSpin 4s linear infinite;box-shadow:0 4px 24px rgba(184,150,62,.35),inset 0 2px 6px rgba(255,255,255,.3)}
+@keyframes discSpin{to{transform:rotate(360deg)}}
+.hp-logo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.1))}
+.hp-ring{position:absolute;inset:8px;border-radius:50%;border:1.5px dashed var(--g4);opacity:.5}
+.hp-ctrl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(26,22,15,.25);border-radius:50%;opacity:1;transition:opacity .3s}
+.hero-player.playing .hp-ctrl{opacity:0}
+.hp-icon{width:28px;height:28px;fill:#fff;filter:drop-shadow(0 1px 4px rgba(0,0,0,.3))}
+.hp-pause{display:none}
+.hero-player.playing .hp-play{display:none}
+.hero-player.playing .hp-pause{display:block}
+.hero-player.playing .hp-ctrl:hover{opacity:1}
+.hp-info{display:flex;align-items:center;gap:8px;color:var(--g3)}
+.hp-label{font-family:Georgia,serif;font-style:italic;font-size:11.5px;transition:color .3s}
+.hero-player.playing .hp-label{color:var(--g1)}
+.hp-bars{display:flex;align-items:flex-end;gap:2px;height:12px}
+.hp-bars span{width:2px;background:var(--g2);border-radius:1px;animation:none;transition:height .2s}
+.hero-player.playing .hp-bars span{animation:musicBar .8s ease-in-out infinite alternate}
+.hp-bars span:nth-child(1){height:3px;animation-delay:0s}
+.hp-bars span:nth-child(2){height:8px;animation-delay:.15s}
+.hp-bars span:nth-child(3){height:5px;animation-delay:.3s}
+.hp-bars span:nth-child(4){height:10px;animation-delay:.1s}
+.hp-bars span:nth-child(5){height:6px;animation-delay:.25s}
+.hero-cta{display:inline-flex;align-items:center;gap:7px;padding:10px 30px;background:linear-gradient(135deg,var(--g3),var(--g1));color:#fff;font-size:11.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border-radius:6px;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(184,150,62,.2);transition:transform .15s}
+.hero-cta:active{transform:scale(.96)}
+.hero-cta svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ===== Section nav — replaces bottom tabs ===== */
+.snav{position:sticky;top:55px;z-index:80;background:rgba(250,247,241,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--g5);padding:10px 0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.snav::-webkit-scrollbar{display:none}
+.snav-inner{display:flex;gap:6px;padding:0 16px;max-width:440px;margin:0 auto;justify-content:center}
+.sn{padding:6px 16px;border-radius:999px;background:transparent;border:1px solid transparent;color:var(--dim);font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0;-webkit-tap-highlight-color:transparent;transition:all .2s}
+.sn.on{background:var(--dk);color:var(--g4);border-color:var(--dk)}
+
+/* ===== Wrapper ===== */
+.w{max-width:440px;margin:0 auto;padding:0 16px}
+
+/* ===== Section headers ===== */
+.sh{padding:28px 0 16px;display:flex;align-items:center;justify-content:center;gap:10px}
+.sh h3{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--g3)}
+
+/* ===== Tutorial — 2-row icon chips when collapsed, expand full ===== */
+.tut-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tg{background:var(--card);border-radius:var(--r);border:1px solid rgba(0,0,0,.05);overflow:hidden;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:box-shadow .3s,border-color .3s}
+.tg:active{border-color:var(--g4)}
+.tg.open{grid-column:1/-1;box-shadow:0 4px 20px rgba(184,150,62,.1);border-color:var(--g4)}
+.tg-h{display:flex;align-items:center;gap:10px;padding:14px}
+.tg-ico{width:34px;height:34px;border-radius:10px;background:var(--bg2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+.tg.open .tg-ico{background:linear-gradient(135deg,var(--g1),var(--g6))}
+.tg-ico svg{width:16px;height:16px;stroke:var(--g3);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}
+.tg.open .tg-ico svg{stroke:#fff}
+.tg-h h2{font-size:12.5px;font-weight:600;color:var(--txt);flex:1;line-height:1.3}
+.tg-b{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.tg-inner{padding:0 14px 14px;border-top:1px solid var(--bg2)}
+.flow{counter-reset:s}
+.fs{counter-increment:s;padding:12px 0;display:flex;gap:10px;align-items:flex-start}
+.fs+.fs{border-top:1px solid var(--bg2)}
+.fs-n{width:20px;height:20px;border-radius:50%;background:var(--bg2);font-size:10px;font-weight:700;color:var(--g3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.fs-n::after{content:counter(s)}
+.fs-c{flex:1;min-width:0}
+.fs-c strong{display:block;font-size:12.5px;font-weight:600;line-height:1.5}
+.fs-c img{max-width:100%;border-radius:8px;border:1px solid var(--bg3);margin-top:6px}
+.ss-ph{background:var(--bg2);border-radius:8px;padding:28px 12px;text-align:center;color:var(--dim2);font-size:10px;font-style:italic;border:1px dashed var(--g4);margin-top:6px}
+
+/* ===== FAQ — alternate background ===== */
+.faq-sec{background:var(--bg2);padding:0 0 20px;margin-top:8px}
+.faq-sec .w{padding-top:0}
+.faq-filter{display:flex;align-items:center;gap:10px;padding:0 0 14px}
+.faq-filter label{font-size:12px;font-weight:600;color:var(--dim);white-space:nowrap}
+.faq-sel{flex:1;padding:9px 14px;border:1px solid var(--g4);border-radius:10px;background:var(--bg);color:var(--dk);font-size:13px;font-weight:600;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' fill='none' stroke='%238a6d2b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
+.fq{background:var(--card);margin-bottom:6px;border-radius:10px;overflow:hidden;transition:box-shadow .2s}
+.fq.open{box-shadow:0 2px 10px rgba(184,150,62,.08)}
+.fq.filtered{display:none}
+.fq-h{display:flex;align-items:center;gap:8px;padding:13px 14px;width:100%;border:none;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent;text-align:left;font:inherit}
+.fq-h .q{flex:1;font-size:13px;font-weight:500;line-height:1.4}
+.fq-h .ic{width:20px;height:20px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,transform .3s}
+.fq.open .fq-h .ic{background:var(--g1);transform:rotate(45deg)}
+.fq-h .ic svg{width:10px;height:10px;stroke:var(--dim2);fill:none;stroke-width:2.5;stroke-linecap:round;transition:stroke .2s}
+.fq.open .fq-h .ic svg{stroke:#fff}
+.fq-a{max-height:0;overflow:hidden;transition:max-height .3s cubic-bezier(.4,0,.2,1)}
+.fq-a>div{padding:2px 14px 14px;font-size:12px;color:var(--dim);line-height:1.8;border-top:1px solid var(--bg2)}
+
+/* ===== Footer — rich dark section w/ social ===== */
+.ftr{background:linear-gradient(180deg,var(--dk),var(--dk2));color:var(--g4);padding:32px 16px calc(24px + var(--safe-b))}
+.ftr-inner{max-width:440px;margin:0 auto}
+.ftr-brand{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.ftr-logo{height:24px;filter:brightness(1.2)}
+.ftr-line{flex:1;height:1px;background:linear-gradient(90deg,var(--g3),transparent)}
+.ftr-social{margin-bottom:20px}
+.ftr-social h4{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim2);margin-bottom:10px}
+.ftr-soc-row{display:flex;gap:10px}
+.ftr-soc{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--dk3);border-radius:10px;border:1px solid rgba(184,150,62,.1);flex:1;transition:border-color .2s}
+.ftr-soc:active{border-color:var(--g3)}
+.ftr-soc-ico{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ftr-soc.fb .ftr-soc-ico{background:#1877f2}
+.ftr-soc.tg .ftr-soc-ico{background:#0088cc}
+.ftr-soc.wa .ftr-soc-ico{background:#25d366}
+.ftr-soc-ico svg{width:14px;height:14px;fill:#fff}
+.ftr-soc span{font-size:11px;font-weight:600;color:var(--g4)}
+.ftr-cs{display:flex;align-items:center;gap:10px;padding:12px 16px;background:linear-gradient(135deg,var(--g3),var(--g1));border-radius:10px;margin-bottom:20px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:opacity .2s}
+.ftr-cs:active{opacity:.85}
+.ftr-cs-ico{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ftr-cs-ico svg{width:18px;height:18px}
+.ftr-cs-text{flex:1}
+.ftr-cs-text strong{display:block;font-size:12px;font-weight:700;color:#fff}
+.ftr-cs-text span{font-size:10px;color:rgba(255,255,255,.7)}
+.ftr-cs .arr{color:rgba(255,255,255,.5)}
+.ftr-cs .arr svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ftr-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(184,150,62,.12)}
+.ftr-bottom span{font-size:10px;color:var(--dim2)}
+
+/* ===== Back to top ===== */
+.btt{position:fixed;bottom:calc(16px + var(--safe-b));right:14px;z-index:70;width:34px;height:34px;border-radius:8px;border:1px solid var(--g4);background:rgba(250,247,241,.9);backdrop-filter:blur(12px);color:var(--g3);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.btt.show{opacity:1;pointer-events:auto}
+.btt svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+@media(min-width:768px){.w{max-width:480px}.tut-grid{gap:10px}}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <img src="okwin178.png" alt="OKWIN178" class="logo">
+    <div class="lang-sw">
+      <button class="on" data-lang="en">EN</button>
+      <button data-lang="ne">नेपाली</button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="casino-bg">
+    <span class="casino-el">&spades;</span><span class="casino-el">&hearts;</span><span class="casino-el">&diams;</span><span class="casino-el">&clubs;</span>
+    <span class="casino-el">&spades;</span><span class="casino-el">&diams;</span><span class="casino-el">&hearts;</span><span class="casino-el">&clubs;</span>
+  </div>
+  <div class="sparkle-wrap">
+    <i class="sparkle"></i><i class="sparkle"></i><i class="sparkle"></i><i class="sparkle"></i>
+    <i class="sparkle"></i><i class="sparkle"></i><i class="sparkle"></i><i class="sparkle"></i>
+  </div>
+  <button class="hero-player" id="heroMusic" style="position:relative;z-index:1" aria-label="Play music">
+    <div class="hp-disc">
+      <img src="okwin178.png" alt="OKWIN178" class="hp-logo">
+      <div class="hp-ring"></div>
+      <div class="hp-ctrl">
+        <svg class="hp-icon hp-play" viewBox="0 0 24 24"><polygon points="8,4 20,12 8,20"/></svg>
+        <svg class="hp-icon hp-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+      </div>
+    </div>
+    <div class="hp-info">
+      <span class="hp-label" data-i="hero_music">Tap to play music</span>
+      <div class="hp-bars"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+  </button>
+  <a href="#" class="hero-cta" id="joinBtn" target="_blank" rel="noopener" style="position:relative;z-index:1">
+    <svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M13 12H3"/></svg>
+    <span data-i="join">Join Now</span>
+  </a>
+</section>
+
+<audio id="bgMusic" loop preload="none" src="okwin178.mp3"></audio>
+
+<!-- Section nav -->
+<nav class="snav" id="snav">
+  <div class="snav-inner">
+    <button class="sn on" data-to="tutorials" data-i="n_tut">Tutorials</button>
+    <button class="sn" data-to="faq">FAQ</button>
+    <button class="sn" data-to="contact" data-i="n_contact">Contact & Social</button>
+  </div>
+</nav>
+
+<!-- ========== TUTORIALS ========== -->
+<section id="tutorials">
+<div class="w">
+  <div class="sh">
+    <div class="sh-deco">
+      <div class="sh-card-fan"><svg viewBox="0 0 36 28"><defs><linearGradient id="cg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8d5a8"/><stop offset=".5" stop-color="#d4b96a"/><stop offset="1" stop-color="#b8963e"/></linearGradient></defs><g transform="rotate(-14,18,22)"><rect x="4" y="3" width="15" height="21" rx="2" fill="#fffdf5" stroke="url(#cg1)" stroke-width="1"/><rect x="6" y="5" width="11" height="17" rx="1" fill="none" stroke="#e8d5a8" stroke-width=".4" stroke-dasharray="1.2 .8"/><text x="11.5" y="16" text-anchor="middle" font-size="7" fill="#c9a54a" font-family="Georgia,serif">&#9830;</text></g><g transform="rotate(6,18,22)"><rect x="14" y="2" width="15" height="21" rx="2" fill="#fffef8" stroke="url(#cg1)" stroke-width="1.2"/><text x="21.5" y="6.5" font-size="4" fill="#b8963e" font-family="Georgia,serif">A</text><text x="21.5" y="16" text-anchor="middle" font-size="9" fill="#b8963e" font-family="Georgia,serif">&#9824;</text></g></svg></div>
+    </div>
+    <h3 data-i="tut_label">Step-by-Step Guides</h3>
+    <div class="sh-deco">
+      <div class="sh-card-fan"><svg viewBox="0 0 36 28"><g transform="rotate(-14,18,22)"><rect x="4" y="3" width="15" height="21" rx="2" fill="#fffdf5" stroke="url(#cg1)" stroke-width="1"/><rect x="6" y="5" width="11" height="17" rx="1" fill="none" stroke="#e8d5a8" stroke-width=".4" stroke-dasharray="1.2 .8"/><text x="11.5" y="16" text-anchor="middle" font-size="7" fill="#c9a54a" font-family="Georgia,serif">&#9829;</text></g><g transform="rotate(6,18,22)"><rect x="14" y="2" width="15" height="21" rx="2" fill="#fffef8" stroke="url(#cg1)" stroke-width="1.2"/><text x="21.5" y="6.5" font-size="4" fill="#b8963e" font-family="Georgia,serif">K</text><text x="21.5" y="16" text-anchor="middle" font-size="9" fill="#b8963e" font-family="Georgia,serif">&#9827;</text></g></svg></div>
+    </div>
+  </div>
+
+  <div class="tut-grid">
+
+    <div class="tg" id="register">
+      <div class="tg-h"><div class="tg-ico"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg></div><h2 data-i="r_t">How to Register</h2></div>
+      <div class="tg-b"><div class="tg-inner"><div class="flow">
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="r1">Click "Register" or "SIGN UP".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="r2">Fill in the registration information, click Get Code, enter the code, and click NEXT.</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="r3">Enter your bank account information and click NEXT.</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="r4">Review the information and click "CONFIRM".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="r5">Registration completed successfully.</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+      </div></div></div>
+    </div>
+
+    <div class="tg" id="deposit">
+      <div class="tg-h"><div class="tg-ico"><svg viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 010-4h14v4"/><path d="M3 5v14a2 2 0 002 2h16v-5"/><path d="M18 12a2 2 0 100 4h4v-4z"/></svg></div><h2 data-i="d_t">How to Deposit</h2></div>
+      <div class="tg-b"><div class="tg-inner"><div class="flow">
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="d1">Click "Deposit".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="d2">Select Method/Channel, enter amount, select Deposit Bonus, then click DEPOSIT.</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="d3">Click "GO".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="d4">Enter Transaction ID and click Submit.</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="d5">Click "COMPLETE DEPOSIT".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+      </div></div></div>
+    </div>
+
+    <div class="tg" id="withdraw">
+      <div class="tg-h"><div class="tg-ico"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01"/></svg></div><h2 data-i="w_t">How to Withdraw</h2></div>
+      <div class="tg-b"><div class="tg-inner"><div class="flow">
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="w1">Click "Withdrawal".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="w2">Enter amount, select bank account, then click "Withdraw".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="w3">Please wait on this page. Do not close or leave this window.</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="w4">Your withdrawal request has been completed successfully.</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+      </div></div></div>
+    </div>
+
+    <div class="tg" id="promo">
+      <div class="tg-h"><div class="tg-ico"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div><h2 data-i="p_t">How to Join Promotions</h2></div>
+      <div class="tg-b"><div class="tg-inner"><div class="flow">
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="p1">Click "Account".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="p2">Click "Reward Center".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="p3">Click "View" in the "Bonus" section.</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="p4">Click "Claim Now".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="p5">Click "OKAY" to claim the promotion successfully.</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+      </div></div></div>
+    </div>
+
+    <div class="tg" id="invite">
+      <div class="tg-h"><div class="tg-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><h2 data-i="inv_t">How to Invite Friends</h2></div>
+      <div class="tg-b"><div class="tg-inner"><div class="flow">
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="inv1">Click "Invite Friends".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="inv2">Share your exclusive invitation link or QR Code with friends.</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+      </div></div></div>
+    </div>
+
+    <div class="tg" id="kyc">
+      <div class="tg-h"><div class="tg-ico"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div><h2 data-i="kyc_t">ID Verification</h2></div>
+      <div class="tg-b"><div class="tg-inner"><div class="flow">
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="k1">Click "Account".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="k2">Click "Security Center".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="k3">Click "ID Verification".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="k4">Upload the front and back of your ID, upload a selfie holding the front of your ID, enter your full name and ID number, then click "SUBMIT".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="k5">Click "OKAY". Your submission has been successful. Please wait for the verification result.</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+      </div></div></div>
+    </div>
+
+    <div class="tg" id="dl-android">
+      <div class="tg-h"><div class="tg-ico"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div><h2 data-i="dl_and_t">Download — Android</h2></div>
+      <div class="tg-b"><div class="tg-inner"><div class="flow">
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="da1">Click "Install".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="da2">Click "Open".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="da3">Click "Install".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="da4">Installation completed successfully. Click "Open" to launch the app.</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+      </div></div></div>
+    </div>
+
+    <div class="tg" id="dl-ios">
+      <div class="tg-h"><div class="tg-ico"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><h2 data-i="dl_ios_t">Download — iOS</h2></div>
+      <div class="tg-b"><div class="tg-inner"><div class="flow">
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="di1">Click "Install".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+        <div class="fs"><div class="fs-n"></div><div class="fs-c"><strong data-i="di2">Tap "Share", then tap "Add to Home Screen", and finally tap "Add".</strong><div class="ss-ph" data-i="ss">Screenshot coming soon</div></div></div>
+      </div></div></div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section id="faq" class="faq-sec">
+<div class="w">
+  <div class="sh">
+    <div class="sh-deco">
+      <div class="sh-card-fan"><svg viewBox="0 0 36 28"><g transform="rotate(-14,18,22)"><rect x="4" y="3" width="15" height="21" rx="2" fill="#fffdf5" stroke="url(#cg1)" stroke-width="1"/><rect x="6" y="5" width="11" height="17" rx="1" fill="none" stroke="#e8d5a8" stroke-width=".4" stroke-dasharray="1.2 .8"/><text x="11.5" y="16" text-anchor="middle" font-size="7" fill="#c9a54a" font-family="Georgia,serif">&#9829;</text></g><g transform="rotate(6,18,22)"><rect x="14" y="2" width="15" height="21" rx="2" fill="#fffef8" stroke="url(#cg1)" stroke-width="1.2"/><text x="21.5" y="6.5" font-size="4" fill="#b8963e" font-family="Georgia,serif">Q</text><text x="21.5" y="16" text-anchor="middle" font-size="9" fill="#b8963e" font-family="Georgia,serif">&#9830;</text></g></svg></div>
+    </div>
+    <h3>FAQ</h3>
+    <div class="sh-deco">
+      <div class="sh-card-fan"><svg viewBox="0 0 36 28"><g transform="rotate(-14,18,22)"><rect x="4" y="3" width="15" height="21" rx="2" fill="#fffdf5" stroke="url(#cg1)" stroke-width="1"/><rect x="6" y="5" width="11" height="17" rx="1" fill="none" stroke="#e8d5a8" stroke-width=".4" stroke-dasharray="1.2 .8"/><text x="11.5" y="16" text-anchor="middle" font-size="7" fill="#c9a54a" font-family="Georgia,serif">&#9827;</text></g><g transform="rotate(6,18,22)"><rect x="14" y="2" width="15" height="21" rx="2" fill="#fffef8" stroke="url(#cg1)" stroke-width="1.2"/><text x="21.5" y="6.5" font-size="4" fill="#b8963e" font-family="Georgia,serif">J</text><text x="21.5" y="16" text-anchor="middle" font-size="9" fill="#b8963e" font-family="Georgia,serif">&#9824;</text></g></svg></div>
+    </div>
+  </div>
+  <div class="faq-filter">
+    <label data-i="faq_cat_label">Category:</label>
+    <select class="faq-sel" id="faqSel">
+      <option value="all" data-i="fp_all">All</option>
+      <option value="acct" data-i="fcat_acct">Account</option>
+      <option value="dep" data-i="fcat_dep">Deposit</option>
+      <option value="wd" data-i="fcat_wd">Withdrawal</option>
+      <option value="promo" data-i="fcat_promo">Bonuses</option>
+      <option value="sec" data-i="fcat_sec">Security</option>
+      <option value="app" data-i="fcat_app">App</option>
+    </select>
+  </div>
+  <div class="faq-list">
+    <div class="fq" data-cat="acct"><button class="fq-h"><span class="q" data-i="fq1q">How do I register an account?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq1a">Click Sign Up.<br>→ Fill in the registration information.<br>Password must be 6–20 characters long and include at least 1 uppercase letter, 1 lowercase letter, and 1 number.<br>→ Click Confirm.<br>→ Registration completed successfully.</div></div></div>
+    <div class="fq" data-cat="acct"><button class="fq-h"><span class="q" data-i="fq2q">What should I do if I forgot my password?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq2a">On the login page, click "Forgot Password"<br>→ enter your username and click NEXT<br>→ receive the 4-digit PIN code<br>→ click VERIFY<br>→ set a new password</div></div></div>
+    <div class="fq" data-cat="acct"><button class="fq-h"><span class="q" data-i="fq3q">How do I change my phone number?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq3a">For security reasons, your registered phone number cannot be changed after registration.<br>This policy is in place to help protect your account from unauthorized access and ensure the security of all account activities.<br>We appreciate your understanding.</div></div></div>
+    <div class="fq" data-cat="acct"><button class="fq-h"><span class="q" data-i="fq4q">Can I delete or deactivate my account?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq4a">We're not able to delete accounts just yet, but no worries — your personal data is kept safe and sound, and we'll never share it or use it for anything else.<br>If you just need a little break, you don't have to do a thing — simply stop logging in for now. And whenever you're ready to jump back in, your account will be right here waiting for you!</div></div></div>
+    <div class="fq" data-cat="acct"><button class="fq-h"><span class="q" data-i="fq5q">How do I update my personal information?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq5a">Mobile version: Tap "Account" at the bottom right of the page to access the "SECURITY CENTER."<br>Desktop version: Simply click on your username in the top status bar to access the "SECURITY CENTER."</div></div></div>
+    <div class="fq" data-cat="acct"><button class="fq-h"><span class="q" data-i="fq6q">What should I do if my account is locked?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq6a">An account may be locked due to multiple incorrect password attempts, unusual login activity, or a violation of our terms of service.<br>Please try resetting your password first. If the issue persists, contact our customer support team with your account details for further assistance.</div></div></div>
+    <div class="fq" data-cat="dep"><button class="fq-h"><span class="q" data-i="fq7q">My deposit hasn't arrived?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq7a">Please keep a screenshot of the transaction and contact customer support.<br>Providing your Username, Order ID, and Amount will help speed up the process.<br>In most cases, deposits will be credited within 5–15 minutes after confirmation, though in rare cases it may take up to 2–3 hours.</div></div></div>
+    <div class="fq" data-cat="dep"><button class="fq-h"><span class="q" data-i="fq8q">What deposit methods are available?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq8a">We offer e-wallets such as eSewa and Khalti, along with transfers from major banks in Nepal, so you can choose the option that works best for you.<br>Please note that available deposit methods and the list of supported banks may be updated from time to time — we kindly ask that you refer to the website for the most current list.</div></div></div>
+    <div class="fq" data-cat="dep"><button class="fq-h"><span class="q" data-i="fq9q">What are the minimum / maximum deposit amounts?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq9a">The minimum deposit amount is NPR 500, and the maximum deposit amount is NPR 200,000.</div></div></div>
+    <div class="fq" data-cat="dep"><button class="fq-h"><span class="q" data-i="fq10q">How long do deposits take to process?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq10a">Deposits will be credited within 5–15 minutes after confirmation. In rare cases, it may take up to 2–3 hours.<br>Please rest assured that all transactions are secure. If there is any delay, our team will verify and process it as quickly as possible.</div></div></div>
+    <div class="fq" data-cat="dep"><button class="fq-h"><span class="q" data-i="fq11q">Are there any deposit fees?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq11a">Our platform does not charge any deposit fees.<br>Please note, however, that your bank or payment provider may apply their own transfer fees, which are beyond our control.</div></div></div>
+    <div class="fq" data-cat="dep"><button class="fq-h"><span class="q" data-i="fq12q">Why was my deposit declined?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq12a">Common reasons: Insufficient balance in your payment account. Transaction limit exceeded. Expired or frozen bank card. Name mismatch between payment method and platform account. Network interruption causing transaction failure.<br>Please check the above and retry, or try a different payment method.</div></div></div>
+    <div class="fq" data-cat="wd"><button class="fq-h"><span class="q" data-i="fq13q">My withdrawal was rejected?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq13a">The most common reasons are a mismatch between the withdrawal account name and the registered name, or having claimed a bonus without completing the required wagering conditions; other possible reasons include incomplete identity verification, exceeding the withdrawal limit, or unusual activity recorded on the account.</div></div></div>
+    <div class="fq" data-cat="wd"><button class="fq-h"><span class="q" data-i="fq14q">How long do withdrawals take?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq14a">Withdrawal reviews are usually completed within 5–15 minutes. The actual time for the funds to arrive may vary depending on your bank's processing time.<br>Please note that from 8:00 PM to 7:00 AM (daily), withdrawal requests will be temporarily unavailable due to the NCHL-IPS daily settlement process.<br>Please rest assured that your funds and transactions are secure. Once the service resumes, we will process your withdrawal as quickly as possible.</div></div></div>
+    <div class="fq" data-cat="wd"><button class="fq-h"><span class="q" data-i="fq15q">What are the minimum / maximum withdrawal amounts?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq15a">The minimum withdrawal amount per transaction is NPR 1,000, and the maximum withdrawal amount per transaction is NPR 100,000.</div></div></div>
+    <div class="fq" data-cat="wd"><button class="fq-h"><span class="q" data-i="fq16q">Are there any withdrawal fees?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq16a">Our platform does not charge any withdrawal fees.<br>Please note, however, that your bank or payment provider may apply their own transfer fees, which are beyond our control.</div></div></div>
+    <div class="fq" data-cat="wd"><button class="fq-h"><span class="q" data-i="fq17q">Is identity verification required before withdrawing?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq17a">Before making a withdrawal, you only need to complete your bank account details and verification.</div></div></div>
+    <div class="fq" data-cat="wd"><button class="fq-h"><span class="q" data-i="fq18q">Can I cancel a pending withdrawal?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq18a">If your withdrawal status is still "Pending," you can contact customer support to cancel it.<br>Once the status changes to "Processed" or "Completed," it can no longer be cancelled.<br>Please double-check your amount and account details before submitting a withdrawal.</div></div></div>
+    <div class="fq" data-cat="wd"><button class="fq-h"><span class="q" data-i="fq19q">Why is my withdrawal still "Pending"?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq19a">The standard review time is 5–15 minutes. If the wait is longer than expected, possible reasons include: your account requiring additional security review, large withdrawals requiring manual approval, or submitted identification documents needing re-verification.<br>Please contact customer support to check the specific status.</div></div></div>
+    <div class="fq" data-cat="promo"><button class="fq-h"><span class="q" data-i="fq21q">What is the Welcome Bonus and how do I claim it?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq21a">Welcome aboard! New members can enjoy a generous bonus on their first deposit, our way of giving you the best possible start.<br>This offer is valid for first-time deposits only. Please select your preferred bonus option (multiple options available) when making your first deposit.<br>Check the Promotions page regularly for the latest offers.</div></div></div>
+    <div class="fq" data-cat="promo"><button class="fq-h"><span class="q" data-i="fq22q">What are Wagering Requirements?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq22a">Wagering Requirement refers to the total betting amount you must reach before your bonus can be converted into withdrawable balance.<br>For example: if a promotion requires a 10x wagering multiplier and you receive a 1,000 bonus, you must wager a total of "(Deposit Amount + 1,000) × 10" before you can withdraw.<br>Calculation: (Deposit Amount + Bonus Amount) × Wagering Multiplier = Total Amount to Wager<br>Please note: Wagering does not mean losing — as long as your bet is settled, it counts toward the wagering requirement regardless of win or loss.</div></div></div>
+    <div class="fq" data-cat="promo"><button class="fq-h"><span class="q" data-i="fq23q">Why did my bonus disappear or get cancelled?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq23a">Possible reasons include: violating the bonus terms and conditions, being detected as a multi-account user, having the bonus forfeited due to a withdrawal attempt before completing the wagering requirement, or placing bets on events or game types that do not count toward the wagering requirement.</div></div></div>
+    <div class="fq" data-cat="promo"><button class="fq-h"><span class="q" data-i="fq20q">How do I claim a bonus?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq20a">1. Click "Account".<br>2. Click "Reward Center".<br>3. Click "View" in the "Bonus" section.<br>4. Click "Claim Now".<br>5. Click "OKAY" to claim the promotion successfully.</div></div></div>
+    <div class="fq" data-cat="sec"><button class="fq-h"><span class="q" data-i="fq24q">Is my personal data safe?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq24a">The platform uses 256-bit SSL encryption to protect all data transmission. Your personal and financial information is encrypted and never shared with third parties. We comply with strict privacy policies.</div></div></div>
+    <div class="fq" data-cat="sec"><button class="fq-h"><span class="q" data-i="fq25q">I received a suspicious message claiming to be from OKWIN178</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq25a">OKWIN178 will never ask for your password, OTP, or banking details via SMS, email, or social media.<br>If you receive such messages, do not click any links. Official contact methods are listed in the platform's announcements and on this page.</div></div></div>
+    <div class="fq" data-cat="app"><button class="fq-h"><span class="q" data-i="fq27q">What should I do if the app won't load or keeps crashing?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq27a">Please try the following steps in order:<br>1. Check your internet connection and try switching between Wi-Fi and mobile data.<br>2. Force close and reopen the app.<br>3. Clear the app cache (Settings → Apps → OKWIN178 → Clear Cache).<br>4. Uninstall and reinstall the latest version of the app.<br>If the issue persists, please contact customer support.</div></div></div>
+    <div class="fq" data-cat="app"><button class="fq-h"><span class="q" data-i="fq28q">How do I clear browser cache and cookies?</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fq-a"><div data-i="fq28a">Mobile Chrome: Tap the menu (⋮) in the top right → Settings → Privacy → Clear Browsing Data → Check "Cached images and files" and "Cookies" → Tap Clear.<br>iPhone Safari: Go to Settings → Safari → Clear History and Website Data.<br>Please re-login after clearing.</div></div></div>
+  </div>
+</div>
+</section>
+
+<!-- ========== Footer — social + contact + info ========== -->
+<footer class="ftr" id="contact">
+  <div class="ftr-inner">
+    <div class="ftr-brand">
+      <img src="okwin178.png" alt="OKWIN178" class="ftr-logo">
+      <div class="ftr-line"></div>
+    </div>
+
+    <a href="#" class="ftr-cs" id="csFab" target="_blank" rel="noopener">
+      <div class="ftr-cs-ico"><svg viewBox="0 0 40 40" fill="none"><path d="M11 16.5C11 13.46 13.46 11 16.5 11h7c3.04 0 5.5 2.46 5.5 5.5v2c0 3.04-2.46 5.5-5.5 5.5H22l-3.5 3.5V24h-2c-3.04 0-5.5-2.46-5.5-5.5v-2z" fill="#faf7f1"/><circle cx="16.5" cy="17.2" r="1.2" fill="#8a6d2b"/><circle cx="20" cy="17.2" r="1.2" fill="#8a6d2b"/><circle cx="23.5" cy="17.2" r="1.2" fill="#8a6d2b"/></svg></div>
+      <div class="ftr-cs-text"><strong data-i="cs_title">24/7 Live Chat</strong><span data-i="cs_sub">Get instant help from our team</span></div>
+      <span class="arr"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span>
+    </a>
+
+    <div class="ftr-social">
+      <h4 data-i="soc_t">Follow Us</h4>
+      <div class="ftr-soc-row">
+        <a href="#" class="ftr-soc fb" id="soc-fb" target="_blank" rel="noopener"><div class="ftr-soc-ico"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div><span>Facebook</span></a>
+        <a href="#" class="ftr-soc tg" id="soc-tg" target="_blank" rel="noopener"><div class="ftr-soc-ico"><svg viewBox="0 0 24 24"><path d="M21 3L1 11l7 2 2 7 4-4 5 4z"/></svg></div><span>Telegram</span></a>
+      </div>
+    </div>
+
+    <div class="ftr-bottom">
+      <span data-i="disc">18+ only. Gamble responsibly.</span>
+      <span>&copy; 2026 OKWIN178</span>
+    </div>
+  </div>
+</footer>
+
+<button class="btt" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg></button>
+
+<script>
+var LINKS={fb:"#",tg:"https://t.me/okwin178",register:"https://www.okwin178.net/en-np?aff=6f559b1954",ios:"#",android:"#",cs:"https://chat-cs010.icxglobal.ai/?bid=9b51e2db-d7ab-4c15-87b2-25ba3b888c58&lang=en",promo:"#"};
+
+var NE={
+  hero:"समस्या भयो? हामी यहाँ छौं मदत गर्न।",hero_music:"संगीत बजाउनुहोस्",join:"अहिले सामेल हुनुहोस्",
+  n_tut:"ट्युटोरियल",n_contact:"सम्पर्क र सामाजिक",tut_label:"चरणबद्ध गाइड",
+  r_t:"कसरी दर्ता गर्ने",r1:"रजिस्टर वा साइन अप मा क्लिक गर्नुहोस्।",r2:"दर्ता जानकारी भर्नुहोस्, Get Code मा क्लिक गर्नुहोस्, कोड हाल्नुहोस् र NEXT मा क्लिक गर्नुहोस्।",r3:"बैंक खाता जानकारी प्रविष्ट गर्नुहोस् र NEXT मा क्लिक गर्नुहोस्।",r4:"जानकारी समीक्षा गर्नुहोस् र CONFIRM मा क्लिक गर्नुहोस्।",r5:"दर्ता सफलतापूर्वक सम्पन्न भयो।",
+  d_t:"कसरी जम्मा गर्ने",d1:"Deposit मा क्लिक गर्नुहोस्।",d2:"Method/Channel छान्नुहोस्, रकम हाल्नुहोस्, Deposit Bonus छान्नुहोस्, त्यसपछि DEPOSIT मा क्लिक गर्नुहोस्।",d3:"GO मा क्लिक गर्नुहोस्।",d4:"Transaction ID प्रविष्ट गरी Submit मा क्लिक गर्नुहोस्।",d5:"COMPLETE DEPOSIT मा क्लिक गर्नुहोस्।",
+  w_t:"कसरी निकाल्ने",w1:"निकासी मा क्लिक गर्नुहोस्।",w2:"रकम प्रविष्ट गर्नुहोस्, बैंक खाता चयन गर्नुहोस्, त्यसपछि पैसा फिक्नु मा क्लिक गर्नुहोस्।",w3:"यस पृष्ठमा प्रतीक्षा गर्नुहोस्। विन्डो बन्द नगर्नुहोस्।",w4:"निकासी अनुरोध सफलतापूर्वक सम्पन्न भयो।",
+  p_t:"प्रोमोमा कसरी सामेल हुने",p1:"खाता मा क्लिक गर्नुहोस्।",p2:"पुरस्कार केन्द्र मा क्लिक गर्नुहोस्।",p3:"बोनस सेक्सनमा हेर्नुहोस् मा क्लिक गर्नुहोस्।",p4:"दाबी गर्नुहोस् मा क्लिक गर्नुहोस्।",p5:"ठिक छ मा क्लिक गर्नुहोस्।",
+  inv_t:"साथीलाई कसरी निमन्त्रणा गर्ने",inv1:"साथीहरूलाई आमन्त्रण दिनुहोस् मा क्लिक गर्नुहोस्।",inv2:"आफ्नो लिङ्क वा QR Code साझा गर्नुहोस्।",
+  kyc_t:"आईडी प्रमाणीकरण",k1:"खाता मा क्लिक गर्नुहोस्।",k2:"सुरक्षा केन्द्र मा क्लिक गर्नुहोस्।",k3:"आईडी प्रमाणीकरण मा क्लिक गर्नुहोस्।",k4:"आफ्नो परिचयपत्रको फोटो तथा सेल्फी अपलोड गर्नुहोस्, नाम र नम्बर प्रविष्ट गर्नुहोस्, पेश गर्नुहोस् मा क्लिक गर्नुहोस्।",k5:"ठिक छ मा क्लिक गर्नुहोस्। कृपया नतिजा पर्खनुहोस्।",
+  dl_and_t:"डाउनलोड — Android",dl_ios_t:"डाउनलोड — iOS",
+  da1:"इन्स्टल मा क्लिक गर्नुहोस्।",da2:"Open मा क्लिक गर्नुहोस्।",da3:"इन्स्टल मा क्लिक गर्नुहोस्।",da4:"स्थापना सफल। खोल्नुहोस् मा क्लिक गर्नुहोस्।",
+  di1:"इन्स्टल मा क्लिक गर्नुहोस्।",di2:"सेयर → होम स्क्रिनमा थप्नुहोस् → थप्नुहोस्।",
+  faq_cat_label:"श्रेणी:",fp_all:"सबै",fcat_acct:"खाता",fcat_dep:"जम्मा",fcat_wd:"निकासी",fcat_promo:"बोनस",fcat_sec:"सुरक्षा",fcat_app:"एप",
+  fq1q:"खाता कसरी दर्ता गर्ने?",fq1a:"साइन अप मा क्लिक गर्नुहोस्।<br>→ दर्ता जानकारी भर्नुहोस्।<br>पासवर्ड ६–२० अक्षर लामो हुनुपर्छ र कम्तिमा १ ठूलो अक्षर, १ सानो अक्षर, र १ अंक समावेश हुनुपर्छ।<br>→ कन्फर्म मा क्लिक गर्नुहोस्।<br>→ दर्ता सफलतापूर्वक सम्पन्न।",
+  fq2q:"पासवर्ड बिर्सिएमा के गर्ने?",fq2a:"लगइन पृष्ठमा \"Forgot Password\" मा क्लिक गर्नुहोस्<br>→ आफ्नो नाम हाल्नुहोस् र NEXT मा क्लिक गर्नुहोस्<br>→ ४ अंकको PIN कोड प्राप्त गर्नुहोस्<br>→ VERIFY मा क्लिक गर्नुहोस्<br>→ नयाँ पासवर्ड सेट गर्नुहोस्",
+  fq3q:"फोन नम्बर कसरी परिवर्तन गर्ने?",fq3a:"सुरक्षाको कारण, दर्ता पछि फोन नम्बर परिवर्तन गर्न सकिँदैन।<br>यो नीति तपाईंको खातालाई अनधिकृत पहुँचबाट जोगाउन र सबै खाता गतिविधिहरूको सुरक्षा सुनिश्चित गर्न लागू गरिएको हो।",
+  fq4q:"के खाता मेटाउन वा निष्क्रिय गर्न सकिन्छ?",fq4a:"हाल खाता मेटाउन सकिँदैन, तर तपाईंको डाटा सुरक्षित छ र कहिल्यै साझा गरिँदैन।<br>बिदा चाहिएमा लगइन नगर्नुहोस् — तपाईंको खाता सधैं तयार रहनेछ!",
+  fq5q:"व्यक्तिगत जानकारी कसरी अपडेट गर्ने?",fq5a:"मोबाइल: पृष्ठको तल दायाँमा \"Account\" मा ट्याप गरी \"SECURITY CENTER\" मा जानुहोस्।<br>डेस्कटप: माथिको स्ट्याटस बारमा आफ्नो नाममा क्लिक गरी \"SECURITY CENTER\" मा जानुहोस्।",
+  fq6q:"खाता लक भएमा के गर्ने?",fq6a:"धेरै पटक गलत पासवर्ड, असामान्य लगइन, वा नियम उल्लंघनले खाता लक हुन सक्छ।<br>पहिले पासवर्ड रिसेट गर्नुहोस्। समस्या रहिरहेमा ग्राहक सहायतालाई सम्पर्क गर्नुहोस्।",
+  fq7q:"जम्मा आइपुगेको छैन?",fq7a:"कृपया लेनदेनको स्क्रिनसट राख्नुहोस् र ग्राहक सहायतालाई सम्पर्क गर्नुहोस्।<br>Username, Order ID, र Amount दिनुभयो भने छिटो प्रक्रिया हुन्छ।<br>सामान्यतया ५–१५ मिनेटमा जम्मा हुन्छ, केही अवस्थामा २–३ घण्टा लाग्न सक्छ।",
+  fq8q:"कुन जम्मा विधि उपलब्ध छन्?",fq8a:"हामी eSewa र Khalti जस्ता e-wallet, साथै नेपालका प्रमुख बैंकहरूबाट ट्रान्सफर प्रदान गर्छौं।<br>उपलब्ध विधि र बैंकहरू समय-समयमा अपडेट हुन सक्छन् — कृपया वेबसाइटमा हेर्नुहोस्।",
+  fq9q:"न्यूनतम / अधिकतम जम्मा रकम कति हो?",fq9a:"न्यूनतम जम्मा NPR ५०० र अधिकतम जम्मा NPR २,००,००० हो।",
+  fq10q:"जम्मा प्रक्रिया कति समय लाग्छ?",fq10a:"पुष्टि पछि ५–१५ मिनेटमा जम्मा हुन्छ। केही अवस्थामा २–३ घण्टा लाग्न सक्छ।<br>सबै लेनदेन सुरक्षित छन्। ढिलाइ भएमा हाम्रो टोलीले सकेसम्म छिटो प्रमाणित र प्रक्रिया गर्नेछ।",
+  fq11q:"जम्मा शुल्क लाग्छ?",fq11a:"हाम्रो प्लेटफर्मले कुनै जम्मा शुल्क लिँदैन।<br>तर तपाईंको बैंक वा भुक्तानी प्रदायकले आफ्नो ट्रान्सफर शुल्क लागू गर्न सक्छ।",
+  fq12q:"जम्मा किन अस्वीकृत भयो?",fq12a:"सामान्य कारणहरू: भुक्तानी खातामा अपर्याप्त ब्यालेन्स। लेनदेन सीमा नाघेको। म्याद सकिएको वा फ्रिज भएको कार्ड। नाम मेल नखाएको। नेटवर्क समस्या।<br>कृपया जाँच गरी पुनः प्रयास गर्नुहोस् वा अर्को विधि प्रयोग गर्नुहोस्।",
+  fq13q:"निकासी अस्वीकृत भयो?",fq13a:"सबैभन्दा सामान्य कारण: निकासी खाताको नाम र दर्ता नाम मेल नखाएको, वा wagering पूरा नगरी बोनस लिएको; अन्य कारणमा अपूर्ण पहिचान प्रमाणीकरण, निकासी सीमा नाघेको, वा असामान्य गतिविधि पर्छ।",
+  fq14q:"निकासी कति समय लाग्छ?",fq14a:"निकासी समीक्षा सामान्यतया ५–१५ मिनेटमा सम्पन्न हुन्छ। रकम प्राप्त हुने समय बैंकको प्रक्रिया अनुसार फरक हुन्छ।<br>कृपया ध्यान दिनुहोस्: NCHL-IPS दैनिक settlement को कारण दैनिक ८:०० PM देखि ७:०० AM सम्म निकासी अस्थायी रूपमा अनुपलब्ध हुनेछ।",
+  fq15q:"न्यूनतम / अधिकतम निकासी रकम कति हो?",fq15a:"प्रति लेनदेन न्यूनतम निकासी NPR १,००० र अधिकतम NPR १,००,००० हो।",
+  fq16q:"निकासी शुल्क लाग्छ?",fq16a:"हाम्रो प्लेटफर्मले कुनै निकासी शुल्क लिँदैन।<br>तर तपाईंको बैंक वा भुक्तानी प्रदायकले आफ्नो शुल्क लागू गर्न सक्छ।",
+  fq17q:"निकासी गर्नु अघि पहिचान प्रमाणीकरण चाहिन्छ?",fq17a:"निकासी गर्नु अघि तपाईंले बैंक खाता विवरण र प्रमाणीकरण मात्र पूरा गर्नुपर्छ।",
+  fq18q:"पेन्डिङ निकासी रद्द गर्न सकिन्छ?",fq18a:"स्थिति \"Pending\" रहेको छ भने ग्राहक सहायतालाई सम्पर्क गरी रद्द गर्न सकिन्छ।<br>\"Processed\" वा \"Completed\" भइसकेपछि रद्द गर्न सकिँदैन।<br>कृपया निकासी पेश गर्नु अघि रकम र खाता विवरण जाँच गर्नुहोस्।",
+  fq19q:"निकासी किन अझै \"Pending\" छ?",fq19a:"मानक समीक्षा समय ५–१५ मिनेट हो। लामो भएमा सम्भावित कारणहरू: थप सुरक्षा समीक्षा, ठूलो रकमको म्यानुअल अनुमोदन, वा पहिचान कागजात पुनः प्रमाणीकरण।<br>कृपया ग्राहक सहायतालाई सम्पर्क गर्नुहोस्।",
+  fq20q:"बोनस कसरी लिने?",fq20a:"१. \"Account\" मा क्लिक गर्नुहोस्।<br>२. \"Reward Center\" मा क्लिक गर्नुहोस्।<br>३. \"Bonus\" सेक्सनमा \"View\" मा क्लिक गर्नुहोस्।<br>४. \"Claim Now\" मा क्लिक गर्नुहोस्।<br>५. \"OKAY\" मा क्लिक गरी प्रोमोशन सफलतापूर्वक लिनुहोस्।",
+  fq21q:"Welcome Bonus के हो र कसरी लिने?",fq21a:"नयाँ सदस्यहरूले पहिलो जम्मामा उदार बोनस पाउन सक्छन्।<br>यो अफर पहिलो जम्माको लागि मात्र मान्य छ। कृपया जम्मा गर्दा आफ्नो मनपर्ने बोनस विकल्प छान्नुहोस्।<br>नवीनतम अफरहरूको लागि नियमित रूपमा प्रोमोशन पृष्ठ जाँच गर्नुहोस्।",
+  fq22q:"Wagering Requirements के हो?",fq22a:"Wagering Requirement भनेको बोनसलाई निकाल्न योग्य ब्यालेन्समा रूपान्तरण गर्न पुग्नुपर्ने कुल बाजी रकम हो।<br>उदाहरण: १०x wagering multiplier र १,००० बोनस भएमा \"(जम्मा + १,०००) × १०\" बाजी गर्नुपर्छ।<br>गणना: (जम्मा + बोनस) × गुणक = कुल बाजी रकम<br>नोट: wagering भनेको हार्नु होइन — बाजी settle भएमा जित वा हार जेसुकै भए पनि गनिन्छ।",
+  fq23q:"बोनस किन गायब वा रद्द भयो?",fq23a:"सम्भावित कारणहरू: बोनस नियम उल्लंघन, बहु-खाता पत्ता लागेको, wagering पूरा नगरी निकासी प्रयास, वा wagering मा नगनिने खेल/घटनामा बाजी लगाएको।",
+  fq24q:"मेरो व्यक्तिगत डाटा सुरक्षित छ?",fq24a:"प्लेटफर्मले सबै डाटा ट्रान्समिसनको लागि 256-bit SSL encryption प्रयोग गर्छ। तपाईंको व्यक्तिगत र आर्थिक जानकारी इन्क्रिप्ट गरिएको छ र तेस्रो पक्षसँग कहिल्यै साझा गरिँदैन।",
+  fq25q:"OKWIN178 बाट भनी शंकास्पद सन्देश आयो",fq25a:"OKWIN178 ले कहिल्यै SMS, इमेल, वा सोशल मिडिया मार्फत पासवर्ड, OTP, वा बैंकिङ विवरण माग्दैन।<br>यस्तो सन्देश प्राप्त भएमा कुनै लिंकमा क्लिक नगर्नुहोस्। आधिकारिक सम्पर्क विधिहरू प्लेटफर्मको घोषणा र यस पृष्ठमा सूचीबद्ध छन्।",
+  fq27q:"एप लोड हुँदैन वा क्र्यास हुन्छ?",fq27a:"कृपया यी चरणहरू क्रमशः प्रयास गर्नुहोस्:<br>१. इन्टरनेट जडान जाँच गर्नुहोस्, Wi-Fi र मोबाइल डाटा बीच स्विच गर्नुहोस्।<br>२. एप बन्द गरी पुनः खोल्नुहोस्।<br>३. एप क्यास क्लियर गर्नुहोस् (Settings → Apps → OKWIN178 → Clear Cache)।<br>४. एप अनइन्स्टल गरी नवीनतम संस्करण पुनः स्थापना गर्नुहोस्।<br>समस्या रहिरहेमा ग्राहक सहायतालाई सम्पर्क गर्नुहोस्।",
+  fq28q:"ब्राउजर क्यास र कुकीज कसरी क्लियर गर्ने?",fq28a:"मोबाइल Chrome: माथि दायाँको मेनु (⋮) → Settings → Privacy → Clear Browsing Data → \"Cached images and files\" र \"Cookies\" चेक गर्नुहोस् → Clear मा ट्याप गर्नुहोस्।<br>iPhone Safari: Settings → Safari → Clear History and Website Data।<br>क्लियर गरेपछि पुनः लगइन गर्नुहोस्।",
+  cs_title:"२४/७ लाइभ च्याट",cs_sub:"हाम्रो टोलीबाट तुरुन्तै सहयोग पाउनुहोस्",
+  soc_t:"हामीलाई फलो गर्नुहोस्",disc:"१८+ मात्र। जिम्मेवारीपूर्वक खेल्नुहोस्।",
+  ss:"स्क्रिनसट चाँडै आउँदैछ"
+};
+
+var curLang="en";
+function setLang(lang){
+  curLang=lang;var dict=lang==="ne"?NE:null;
+  document.querySelectorAll("[data-i]").forEach(function(el){
+    var k=el.getAttribute("data-i");
+    if(dict&&dict[k])el.innerHTML=dict[k];
+    else if(!dict&&el.dataset.en)el.innerHTML=el.dataset.en;
+  });
+  document.querySelectorAll(".lang-sw button").forEach(function(b){b.classList.toggle("on",b.dataset.lang===lang)});
+  document.documentElement.lang=lang==="en"?"en":"ne";
+}
+document.querySelectorAll("[data-i]").forEach(function(el){el.dataset.en=el.innerHTML});
+document.querySelectorAll(".lang-sw button").forEach(function(btn){btn.addEventListener("click",function(){setLang(btn.dataset.lang)})});
+
+document.getElementById("joinBtn").href=LINKS.register;
+document.getElementById("csFab").href=LINKS.cs;
+document.getElementById("soc-fb").href=LINKS.fb;
+document.getElementById("soc-tg").href=LINKS.tg;
+
+/* Tutorial grid accordion */
+document.querySelectorAll(".tg-h").forEach(function(h){
+  h.addEventListener("click",function(){
+    var card=h.closest(".tg"),wasOpen=card.classList.contains("open");
+    document.querySelectorAll(".tg.open").forEach(function(c){c.classList.remove("open");c.querySelector(".tg-b").style.maxHeight=''});
+    if(!wasOpen){card.classList.add("open");var b=card.querySelector(".tg-b");b.style.maxHeight=b.scrollHeight+'px';setTimeout(function(){card.scrollIntoView({behavior:"smooth",block:"nearest"})},80)}
+  });
+});
+
+/* FAQ select filter */
+document.getElementById("faqSel").addEventListener("change",function(){
+  var cat=this.value;
+  document.querySelectorAll(".fq").forEach(function(q){
+    if(cat==="all")q.classList.remove("filtered");else q.classList.toggle("filtered",q.dataset.cat!==cat);
+    q.classList.remove("open");q.querySelector(".fq-a").style.maxHeight='';
+  });
+});
+
+/* FAQ toggle */
+document.querySelectorAll(".fq-h").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    var item=btn.parentElement,isOpen=item.classList.contains("open");
+    if(isOpen){item.querySelector(".fq-a").style.maxHeight='';item.classList.remove("open")}
+    else{item.classList.add("open");var a=item.querySelector(".fq-a");a.style.maxHeight=a.scrollHeight+'px'}
+  });
+});
+
+/* Section nav */
+document.querySelectorAll(".sn").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    document.querySelectorAll(".sn").forEach(function(n){n.classList.remove("on")});btn.classList.add("on");
+    var el=document.getElementById(btn.dataset.to);
+    if(el)el.scrollIntoView({behavior:"smooth",block:"start"});
+  });
+});
+
+/* Scroll spy for section nav */
+var sections=[{id:"tutorials"},{id:"faq"},{id:"contact"}];
+window.addEventListener("scroll",function(){
+  var st=window.scrollY+120;
+  var current="tutorials";
+  sections.forEach(function(s){var el=document.getElementById(s.id);if(el&&el.offsetTop<=st)current=s.id});
+  document.querySelectorAll(".sn").forEach(function(n){n.classList.toggle("on",n.dataset.to===current)});
+},{passive:true});
+
+/* Back to top */
+var btt=document.querySelector(".btt");
+btt.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})});
+window.addEventListener("scroll",function(){btt.classList.toggle("show",window.scrollY>400)},{passive:true});
+
+/* Music toggle */
+var heroMusic=document.getElementById("heroMusic"),bgMusic=document.getElementById("bgMusic");
+heroMusic.addEventListener("click",function(e){e.preventDefault();if(bgMusic.paused){bgMusic.play().then(function(){heroMusic.classList.add("playing")}).catch(function(){})}else{bgMusic.pause();heroMusic.classList.remove("playing")}});
+</script>
+</body>
+</html>
