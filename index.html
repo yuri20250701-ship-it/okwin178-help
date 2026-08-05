@@ -390,7 +390,7 @@ img{display:block;max-width:100%}
     <label data-i="faq_cat_label">Category:</label>
     <select class="faq-sel" id="faqSel">
       <option value="all" data-i="fp_all">All</option>
-      <option value="acct" data-i="fcat_acct">Account</option>
+      <option value="acct" data-i="fcat_acct" selected>Account</option>
       <option value="dep" data-i="fcat_dep">Deposit</option>
       <option value="wd" data-i="fcat_wd">Withdrawal</option>
       <option value="promo" data-i="fcat_promo">Bonuses</option>
@@ -548,6 +548,8 @@ document.getElementById("faqSel").addEventListener("change",function(){
     q.classList.remove("open");q.querySelector(".fq-a").style.maxHeight='';
   });
 });
+
+document.querySelectorAll(".fq").forEach(function(q){q.classList.toggle("filtered",q.dataset.cat!=="acct")});
 
 /* FAQ toggle */
 document.querySelectorAll(".fq-h").forEach(function(btn){
