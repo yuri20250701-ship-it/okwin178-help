@@ -140,6 +140,9 @@ img{display:block;max-width:100%}
 .fs-c img{max-width:100%;border-radius:8px;border:1px solid var(--bg3);margin-top:6px}
 .ss-img{border-radius:8px;margin-top:6px;width:100%}
 .img-ne{display:none}
+.tg-close{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:10px 0;margin-top:8px;border:1px solid var(--bg3);border-radius:8px;background:var(--bg2);color:var(--dim);font-size:11px;font-weight:600;cursor:pointer;transition:all .2s}
+.tg-close:active{background:var(--bg3)}
+.tg-close svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
 /* ===== FAQ — alternate background ===== */
 .faq-sec{background:var(--bg2);padding:0 0 20px;margin-top:8px}
@@ -480,6 +483,7 @@ var NE={
   dl_and_t:"कसरी डाउनलोड गर्ने — Android",dl_ios_t:"कसरी डाउनलोड गर्ने — iOS",
   da1:"इन्स्टल गर्नुहोस् मा क्लिक गर्नुहोस्।",da2:"खोल्नुहोस् मा क्लिक गर्नुहोस्।",da3:"इन्स्टल गर्नुहोस् मा क्लिक गर्नुहोस्।",da4:"स्थापना सफल भयो। खोल्नुहोस् मा क्लिक गरी एप खोल्नुहोस्।",
   di1:"इन्स्टल गर्नुहोस् मा क्लिक गर्नुहोस्।",di2:"सेयर मा क्लिक गर्नुहोस्, त्यसपछि होम स्क्रिनमा थप्नुहोस् मा क्लिक गर्नुहोस्, अन्त्यमा थप्नुहोस् मा क्लिक गर्नुहोस्।",
+  tg_close:"बन्द गर्नुहोस्",
   lbl_faq:"सामान्य प्रश्नहरू",n_faq:"सामान्य प्रश्न",
   faq_cat_label:"श्रेणी:",fp_all:"सबै",fcat_acct:"खाता",fcat_dep:"जम्मा",fcat_wd:"निकासी",fcat_promo:"बोनस",fcat_sec:"सुरक्षा",fcat_app:"एप",
   fq1q:"खाता कसरी दर्ता गर्ने?",fq1a:"साइन अप मा क्लिक गर्नुहोस्।<br>→ दर्ता जानकारी भर्नुहोस्।<br>पासवर्ड ६–२० अक्षर लामो हुनुपर्छ र कम्तिमा १ ठूलो अक्षर, १ सानो अक्षर, र १ अंक समावेश हुनुपर्छ।<br>→ कन्फर्म मा क्लिक गर्नुहोस्।<br>→ दर्ता सफलतापूर्वक सम्पन्न।",
@@ -527,6 +531,15 @@ function setLang(lang){
   document.querySelectorAll(".img-ne").forEach(function(el){el.style.display=lang==="ne"?"":"none"});
   document.documentElement.lang=lang==="en"?"en":"ne";
 }
+/* Tutorial collapse buttons (before data-en backup so they get translated) */
+function closeCard(card){card.classList.remove("open");card.querySelector(".tg-b").style.maxHeight='';card.querySelector(".tg-h").scrollIntoView({behavior:"smooth",block:"nearest"})}
+document.querySelectorAll(".tg").forEach(function(card){
+  var btn=document.createElement("button");btn.className="tg-close";
+  btn.innerHTML='<svg viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg><span data-i="tg_close">Collapse</span>';
+  card.querySelector(".tg-inner").appendChild(btn);
+  btn.addEventListener("click",function(e){e.stopPropagation();closeCard(card)});
+});
+
 document.querySelectorAll("[data-i]").forEach(function(el){el.dataset.en=el.innerHTML});
 document.querySelectorAll(".lang-sw button").forEach(function(btn){btn.addEventListener("click",function(){setLang(btn.dataset.lang)})});
 
@@ -536,8 +549,6 @@ document.getElementById("csFab").href=LINKS.cs;
 var uLang=(navigator.language||"").toLowerCase();
 if(uLang.startsWith("en"))setLang("en");
 else setLang("ne");
-
-/* Tutorial grid accordion */
 document.querySelectorAll(".tg-h").forEach(function(h){
   h.addEventListener("click",function(){
     var card=h.closest(".tg"),wasOpen=card.classList.contains("open");
