@@ -185,15 +185,6 @@ img{display:block;max-width:100%}
 .ftr-soc-ico{width:36px;height:36px;border-radius:50%;flex-shrink:0;overflow:hidden}
 .ftr-soc-ico img{width:100%;height:100%;object-fit:cover}
 .ftr-soc span{font-size:12px;font-weight:600;color:var(--g4)}
-.ftr-cs{display:flex;align-items:center;gap:10px;padding:12px 16px;background:linear-gradient(135deg,var(--g3),var(--g1));border-radius:10px;margin-bottom:20px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:opacity .2s}
-.ftr-cs:active{opacity:.85}
-.ftr-cs-ico{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ftr-cs-ico svg{width:18px;height:18px}
-.ftr-cs-text{flex:1}
-.ftr-cs-text strong{display:block;font-size:12px;font-weight:700;color:#fff}
-.ftr-cs-text span{font-size:11px;color:rgba(255,255,255,.7)}
-.ftr-cs .arr{color:rgba(255,255,255,.5)}
-.ftr-cs .arr svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .ftr-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(184,150,62,.12)}
 .ftr-bottom span{font-size:11px;color:var(--dim2)}
 
@@ -467,11 +458,6 @@ img{display:block;max-width:100%}
       <div class="ftr-line"></div>
     </div>
 
-    <a href="#" class="ftr-cs" id="csFab" target="_blank" rel="noopener">
-      <div class="ftr-cs-ico"><svg viewBox="0 0 40 40" fill="none"><path d="M11 16.5C11 13.46 13.46 11 16.5 11h7c3.04 0 5.5 2.46 5.5 5.5v2c0 3.04-2.46 5.5-5.5 5.5H22l-3.5 3.5V24h-2c-3.04 0-5.5-2.46-5.5-5.5v-2z" fill="#faf7f1"/><circle cx="16.5" cy="17.2" r="1.2" fill="#8a6d2b"/><circle cx="20" cy="17.2" r="1.2" fill="#8a6d2b"/><circle cx="23.5" cy="17.2" r="1.2" fill="#8a6d2b"/></svg></div>
-      <div class="ftr-cs-text"><strong data-i="cs_title">24/7 Live Chat</strong><span data-i="cs_sub">Get instant help from our team</span></div>
-      <span class="arr"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span>
-    </a>
 
     <div class="ftr-social">
       <h4 data-i="soc_t">Follow Us</h4>
@@ -492,7 +478,7 @@ img{display:block;max-width:100%}
 <button class="btt" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg></button>
 
 <script>
-var LINKS={fb:"#",tg:"https://t.me/okwin178",register:"https://www.okwin178.net/en-np?aff=6f559b1954",ios:"#",android:"#",cs:"https://chat-cs010.icxglobal.ai/?bid=9b51e2db-d7ab-4c15-87b2-25ba3b888c58&lang=en",promo:"https://www.okwin178.net/en-np/promotions",registerPage:"https://www.okwin178.net/en-np/register?aff=6f559b1954"};
+var LINKS={fb:"#",tg:"https://t.me/okwin178",register:"https://www.okwin178.net/en-np?aff=6f559b1954",ios:"#",android:"#",promo:"https://www.okwin178.net/en-np/promotions",registerPage:"https://www.okwin178.net/en-np/register?aff=6f559b1954"};
 
 var NE={
   hero:"समस्या भयो? हामी यहाँ छौं मदत गर्न।",hero_music:"संगीत बजाउनुहोस्",join:"अहिले सामेल हुनुहोस्",
@@ -570,7 +556,6 @@ document.querySelectorAll("[data-i]").forEach(function(el){el.dataset.en=el.inne
 document.querySelectorAll(".lang-sw button").forEach(function(btn){btn.addEventListener("click",function(){setLang(btn.dataset.lang)})});
 
 document.getElementById("joinBtn").href=LINKS.register;
-document.getElementById("csFab").href=LINKS.cs;
 
 var uLang=(navigator.language||"").toLowerCase();
 if(uLang.startsWith("en"))setLang("en");
@@ -649,5 +634,16 @@ document.querySelectorAll(".snav").forEach(function(el){
   },{passive:false});
 });
 </script>
+<!-- Start of LiveChat (www.livechat.com) code -->
+<script>
+    window.__lc = window.__lc || {};
+    window.__lc.license = 14217984;
+    window.__lc.group = 13;
+    window.__lc.integration_name = "manual_channels";
+    window.__lc.product_name = "livechat";
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/14217984/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+<!-- End of LiveChat code -->
 </body>
 </html>
